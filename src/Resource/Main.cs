@@ -29,7 +29,7 @@ namespace Resource
         private void InitGridColumn()
         {
             dgResourceList.AutoGenerateColumns = false;
-            dgResourceList.ReadOnly = false;
+            dgResourceList.ReadOnly = true;
 
             dgResourceList.Columns.AddRange(
                 new DataGridViewColumn[] { 
@@ -72,6 +72,13 @@ namespace Resource
                          SortMode = DataGridViewColumnSortMode.NotSortable,
                          Tag = "Modify",
                          Width = 60
+                    },
+                    new DataGridViewTextBoxColumn(){
+                         DisplayIndex = 5,
+                         Name = "Index",
+                         DataPropertyName = "Index",
+                         SortMode = DataGridViewColumnSortMode.NotSortable,
+                         Width = 0,
                     }
                 });
         }
@@ -80,14 +87,16 @@ namespace Resource
         {
             dgResourceList.DataSource = new List<ResourceModel> { 
                 new ResourceModel {
+                     Index = 1,
                      Key = "test1",
                      Chinese = "test1-chinese",
                      English = "test1-english"
                 },
                 new ResourceModel {
+                     Index = 2,
                      Key = "test2",
-                     Chinese = "test2-chinese",
-                     English = "test2-english"
+                     Chinese = "test2-chinesedfgsdfgsdfgsdfgsdfgsdfgsdgsdfgsdfgsdfgsdf",
+                     English = "test2-englishsdfgsdfgsdgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd"
                 }
             };
         }
@@ -118,15 +127,26 @@ namespace Resource
                     //删除
                     if (string.Equals("Delete", tag.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
-
+                        MessageBox.Show("Delete");
                     }
                     //修改
                     else if (string.Equals("Modify", tag.ToString(), StringComparison.OrdinalIgnoreCase))
-                    { 
-                    
+                    {
+                        MessageBox.Show("Modify");
                     }
                 }
             }
+        }
+
+        private void dgResourceList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string value = dgResourceList.CurrentRow.Cells["Index"].Value.ToString();
+
+            int index = 0;
+            int.TryParse(value, out index);
+            if (index == 0) return;
+
+
         }
     }
 }

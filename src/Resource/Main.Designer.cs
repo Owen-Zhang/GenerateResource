@@ -63,6 +63,7 @@
             this.dgResourceList.Size = new System.Drawing.Size(1056, 522);
             this.dgResourceList.TabIndex = 0;
             this.dgResourceList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgResourceList_CellContentClick);
+            this.dgResourceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgResourceList_CellDoubleClick);
             // 
             // btnSearch
             // 
