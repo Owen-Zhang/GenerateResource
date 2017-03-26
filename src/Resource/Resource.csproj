@@ -107,7 +107,7 @@
     <Content Include="Configuration\Resource.xml" />
     <Content Include="Configuration\DataBase.xml" />
     <Content Include="Configuration\DbCommandFiles.xml" />
-    <Content Include="Configuration\Table.txt" />
+    <Content Include="Configuration\Table.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
