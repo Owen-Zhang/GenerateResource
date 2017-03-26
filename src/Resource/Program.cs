@@ -17,6 +17,8 @@ namespace Resource
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
+
+            DataAccess.DbManager.LoadDataAccessConfig();
         }
     }
 }

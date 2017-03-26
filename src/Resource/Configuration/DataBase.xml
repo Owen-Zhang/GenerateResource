@@ -1,0 +1,7 @@
+﻿<CommandFile>
+  <DataBaseList>
+    <DataBase Name="TestMySql" Type="MySql">
+      <ConnectionString>Server=localhost;Database=scheduler;Uid=root;Pwd=123456;</ConnectionString>
+    </DataBase>
+  </DataBaseList>
+</CommandFile>

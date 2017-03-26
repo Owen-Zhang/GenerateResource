@@ -1,5 +1,7 @@
-﻿using Resource.Model;
+﻿using Resource.DataAcess;
+using Resource.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,6 +28,7 @@ namespace Resource
             InitGridData();
         }
 
+        #region 初始化表格
         private void InitGridColumn()
         {
             dgResourceList.AutoGenerateColumns = false;
@@ -82,6 +85,7 @@ namespace Resource
                     }
                 });
         }
+        #endregion
 
         private void InitGridData()
         {
@@ -108,7 +112,7 @@ namespace Resource
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            new Child(Status.New, 0).ShowDialog();
         }
 
         /// <summary>
@@ -124,15 +128,25 @@ namespace Resource
                     var tag = column.Tag;
                     if (tag == null) return;
 
+                    var index = GetDataIndexData();
+                    if (index == 0) return;
+
                     //删除
                     if (string.Equals("Delete", tag.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Delete");
+                        if (MessageBox.Show(this, "你确定要删除此条数据?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                        {
+                            ResourceDataService.DeleteOneData(index);
+                            var list = (IList)dgResourceList.DataSource;
+                            list.RemoveAt(dgResourceList.CurrentRow.Index);
+                            dgResourceList.DataSource = null;
+                            dgResourceList.DataSource = list;
+                        }
                     }
                     //修改
                     else if (string.Equals("Modify", tag.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
-                        MessageBox.Show("Modify");
+                        new Child(Status.Edit, index).ShowDialog();
                     }
                 }
             }
@@ -140,13 +154,19 @@ namespace Resource
 
         private void dgResourceList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var index = GetDataIndexData();
+            if (index == 0) return;
+
+            new Child(Status.View, index).ShowDialog();
+        }
+
+        private int GetDataIndexData()
+        {
             string value = dgResourceList.CurrentRow.Cells["Index"].Value.ToString();
 
             int index = 0;
             int.TryParse(value, out index);
-            if (index == 0) return;
-
-
+            return index;
         }
     }
 }
