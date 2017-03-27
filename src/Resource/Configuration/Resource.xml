@@ -1,39 +1,111 @@
 ﻿<CommandFile>
   <CommandList>
-    <Command Name="GetSellerInfo" DataBase="QueryDB" CommandType="Text">
+    
+    <Command Name="Resource_DeleteOne" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        SELECT TOP 10 SellerId FROM dbo.EDI_Seller_BasicInfo WHERE SellerId <> @SellerId ORDER BY selleriD desc
+        delete from multipleresource where transactionnumber = @Index 
       ]]>
       </CommandText>
       <Parameters>
-        <Parameter Name="@SellerId" DbType="StringFixedLength" Size="6" />
+        <Parameter Name="@Index" DbType="Int32" />
       </Parameters>
     </Command>
 
-    <Command Name="GetSellerInfo2" DataBase="QueryDB" CommandType="Text">
+    <Command Name="Resource_GetOneByTransactionNumber" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        SELECT TOP 10 SellerId, SellerName FROM dbo.EDI_Seller_BasicInfo WHERE SellerId <> @SellerId ORDER BY selleriD desc
-        
-        SELECT SellerId, SellerName FROM dbo.EDI_Seller_BasicInfo WHERE SellerId = @SellerId
+        select 
+          transactionNumber as `Index`, 
+          Keyword as `Key`, 
+          chinese as Chinese, 
+          english as English 
+        from multipleresource 
+        where transactionnumber = @Index
       ]]>
       </CommandText>
       <Parameters>
-        <Parameter Name="@SellerId" DbType="StringFixedLength" Size="6" />
+        <Parameter Name="@Index" DbType="Int32" />
+      </Parameters>
+    </Command>
+
+    <Command Name="Resource_GetOneByKey" DataBase="TestMySql" CommandType="Text">
+      <CommandText>
+        <![CDATA[
+        select 
+          transactionNumber as `Index`, 
+          Keyword as `Key`, 
+          chinese as Chinese, 
+          english as English 
+        from multipleresource 
+        where Keyword = @Key
+      ]]>
+      </CommandText>
+      <Parameters>
+        <Parameter Name="@Key" DbType="String" />
       </Parameters>
     </Command>
     
-    <Command Name="UpateSellerInfo" DataBase="MKTPLS" CommandType="Text">
+    <Command Name="Resource_NewOne" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        update dbo.EDI_Seller_BasicInfo set SellerName = @SellerName where SellerId = @SellerId
+        insert into multipleresource
+        (
+          Keyword,
+          chinese,
+          english
+        )
+        values
+        (
+          @KeyWord,
+          @Chinese,
+          @English
+        ) 
       ]]>
       </CommandText>
       <Parameters>
-        <Parameter Name="@SellerId" DbType="StringFixedLength" Size="6" />
-        <Parameter Name="@SellerName" DbType="StringFixedLength" Size="40" />
+        <Parameter Name="@KeyWord" DbType="String" />
+        <Parameter Name="@Chinese" DbType="String" />
+        <Parameter Name="@English" DbType="String" />
       </Parameters>
     </Command>
+
+    <Command Name="Resource_UpdateOne" DataBase="TestMySql" CommandType="Text">
+      <CommandText>
+        <![CDATA[
+        update multipleresource set
+          chinese = @Chinese,
+          english = @English
+          where transactionnumber = @Index
+      ]]>
+      </CommandText>
+      <Parameters>
+        <Parameter Name="@Chinese" DbType="String" />
+        <Parameter Name="@English" DbType="String" />
+        <Parameter Name="@Index" DbType="Int32" />
+      </Parameters>
+    </Command>
+
+    <Command Name="Resource_Search" DataBase="TestMySql" CommandType="Text">
+      <CommandText>
+        <![CDATA[
+        select
+          transactionNumber as `Index`, 
+          Keyword as `Key`, 
+          chinese as Chinese, 
+          english as English 
+        from multipleresource 
+        where (@KeyWordType = 'Key' and Keyword like concat('%',@Content,'%')) or
+              (@KeyWordType = 'Value' and (chinese like concat('%',@Content,'%') or english like concat('%',@Content,'%')))
+        order by transactionnumber desc
+        Limit 50
+      ]]>
+      </CommandText>
+      <Parameters>
+        <Parameter Name="@KeyWordType" DbType="String" />
+        <Parameter Name="@Content" DbType="String" />
+      </Parameters>
+    </Command>
+    
   </CommandList>
 </CommandFile>

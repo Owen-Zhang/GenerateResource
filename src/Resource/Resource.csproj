@@ -69,6 +69,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ComboboxItem.cs" />
     <Compile Include="Model\FormStatus.cs" />
     <Compile Include="Model\ResourceModel.cs" />
     <Compile Include="Program.cs" />
@@ -100,13 +101,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="Configuration\Resource.xml" />
-    <Content Include="Configuration\DataBase.xml" />
-    <Content Include="Configuration\DbCommandFiles.xml" />
+    <Content Include="Configuration\Resource.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configuration\DataBase.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Configuration\DbCommandFiles.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Configuration\Table.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgResourceList = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
@@ -40,36 +40,37 @@
             // 
             // dgResourceList
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgResourceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgResourceList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgResourceList.ColumnHeadersHeight = 30;
             this.dgResourceList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgResourceList.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgResourceList.Location = new System.Drawing.Point(5, 71);
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgResourceList.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgResourceList.Location = new System.Drawing.Point(5, 79);
             this.dgResourceList.Name = "dgResourceList";
-            this.dgResourceList.Size = new System.Drawing.Size(1056, 522);
+            this.dgResourceList.Size = new System.Drawing.Size(1407, 713);
             this.dgResourceList.TabIndex = 0;
             this.dgResourceList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgResourceList_CellContentClick);
             this.dgResourceList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgResourceList_CellDoubleClick);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(502, 42);
+            this.btnSearch.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSearch.Location = new System.Drawing.Point(770, 42);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(81, 29);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "查询";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -78,28 +79,29 @@
             // cmbSearchType
             // 
             this.cmbSearchType.DropDownHeight = 150;
+            this.cmbSearchType.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cmbSearchType.FormattingEnabled = true;
             this.cmbSearchType.IntegralHeight = false;
-            this.cmbSearchType.Items.AddRange(new object[] {
-            "关键字",
-            "内容"});
             this.cmbSearchType.Location = new System.Drawing.Point(5, 43);
             this.cmbSearchType.Name = "cmbSearchType";
-            this.cmbSearchType.Size = new System.Drawing.Size(121, 20);
+            this.cmbSearchType.Size = new System.Drawing.Size(121, 28);
             this.cmbSearchType.TabIndex = 2;
             // 
             // SearchText
             // 
+            this.SearchText.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SearchText.Location = new System.Drawing.Point(132, 42);
             this.SearchText.Name = "SearchText";
-            this.SearchText.Size = new System.Drawing.Size(361, 21);
+            this.SearchText.Size = new System.Drawing.Size(632, 31);
             this.SearchText.TabIndex = 3;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(983, 43);
+            this.btnAdd.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdd.Location = new System.Drawing.Point(1337, 42);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 29);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "新增";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -109,15 +111,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1061, 593);
+            this.ClientSize = new System.Drawing.Size(1414, 791);
             this.Controls.Add(this.SearchText);
             this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dgResourceList);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Main";
-            this.Text = "Main";
+            this.Text = "多语言资源管理器";
             ((System.ComponentModel.ISupportInitialize)(this.dgResourceList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

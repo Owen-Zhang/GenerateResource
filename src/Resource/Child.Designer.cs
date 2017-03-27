@@ -41,74 +41,83 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 72);
+            this.label1.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(51, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(66, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "关键字";
             // 
             // txtKey
             // 
-            this.txtKey.Location = new System.Drawing.Point(162, 69);
+            this.txtKey.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtKey.Location = new System.Drawing.Point(124, 37);
             this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(486, 21);
+            this.txtKey.Size = new System.Drawing.Size(614, 29);
             this.txtKey.TabIndex = 1;
             // 
             // txtChinese
             // 
-            this.txtChinese.Location = new System.Drawing.Point(162, 163);
+            this.txtChinese.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtChinese.Location = new System.Drawing.Point(124, 137);
             this.txtChinese.Name = "txtChinese";
-            this.txtChinese.Size = new System.Drawing.Size(486, 21);
+            this.txtChinese.Size = new System.Drawing.Size(614, 29);
             this.txtChinese.TabIndex = 3;
             // 
             // lbChinese
             // 
             this.lbChinese.AutoSize = true;
-            this.lbChinese.Location = new System.Drawing.Point(48, 172);
+            this.lbChinese.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbChinese.Location = new System.Drawing.Point(69, 142);
             this.lbChinese.Name = "lbChinese";
-            this.lbChinese.Size = new System.Drawing.Size(29, 12);
+            this.lbChinese.Size = new System.Drawing.Size(47, 19);
             this.lbChinese.TabIndex = 2;
             this.lbChinese.Text = "中文";
             // 
             // txtEnglish
             // 
-            this.txtEnglish.Location = new System.Drawing.Point(162, 271);
+            this.txtEnglish.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtEnglish.Location = new System.Drawing.Point(124, 239);
             this.txtEnglish.Name = "txtEnglish";
-            this.txtEnglish.Size = new System.Drawing.Size(486, 21);
+            this.txtEnglish.Size = new System.Drawing.Size(614, 29);
             this.txtEnglish.TabIndex = 5;
             // 
             // lbEnglish
             // 
             this.lbEnglish.AutoSize = true;
-            this.lbEnglish.Location = new System.Drawing.Point(48, 274);
+            this.lbEnglish.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbEnglish.Location = new System.Drawing.Point(43, 244);
             this.lbEnglish.Name = "lbEnglish";
-            this.lbEnglish.Size = new System.Drawing.Size(29, 12);
+            this.lbEnglish.Size = new System.Drawing.Size(79, 19);
             this.lbEnglish.TabIndex = 4;
-            this.lbEnglish.Text = "英文";
+            this.lbEnglish.Text = "English";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(573, 345);
+            this.btnCancel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnCancel.Location = new System.Drawing.Point(683, 308);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(55, 23);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(492, 345);
+            this.btnOk.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnOk.Location = new System.Drawing.Point(618, 308);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(60, 23);
             this.btnOk.TabIndex = 7;
             this.btnOk.Text = "保存";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // Child
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 407);
+            this.ClientSize = new System.Drawing.Size(750, 340);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtEnglish);
@@ -117,6 +126,7 @@
             this.Controls.Add(this.lbChinese);
             this.Controls.Add(this.txtKey);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Child";

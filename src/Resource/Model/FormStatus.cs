@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Resource.Model
 {
-    public enum Status
+    public enum FileStatus
     {
         New,
         View,

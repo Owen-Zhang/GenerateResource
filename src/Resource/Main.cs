@@ -23,7 +23,7 @@ namespace Resource
 
         private void InitData()
         {
-            cmbSearchType.SelectedIndex = 0;
+            InitComboxData();
             InitGridColumn();
             InitGridData();
         }
@@ -33,6 +33,7 @@ namespace Resource
         {
             dgResourceList.AutoGenerateColumns = false;
             dgResourceList.ReadOnly = true;
+            dgResourceList.AllowUserToResizeColumns = false;
 
             dgResourceList.Columns.AddRange(
                 new DataGridViewColumn[] { 
@@ -42,7 +43,7 @@ namespace Resource
                          Name = "Key",
                          DataPropertyName = "Key",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 190,
+                         Width = 269,
                     },
                     new DataGridViewTextBoxColumn(){
                          DisplayIndex = 1,
@@ -50,7 +51,7 @@ namespace Resource
                          Name = "Chinese",
                          DataPropertyName = "Chinese",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 350,
+                         Width = 485,
                     },
                     new DataGridViewTextBoxColumn(){
                          DisplayIndex = 2,
@@ -58,7 +59,7 @@ namespace Resource
                          Name = "English",
                          DataPropertyName =  "English",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 350
+                         Width = 485
                     },
                     new DataGridViewButtonColumn(){
                          DisplayIndex = 3,
@@ -87,32 +88,44 @@ namespace Resource
         }
         #endregion
 
+        /// <summary>
+        /// 初始化下拉框
+        /// </summary>
+        private void InitComboxData()
+        {
+            cmbSearchType.Items.AddRange(new List<ComboboxItem>
+            {
+                new ComboboxItem{
+                     Text = "关键字",
+                     Value = "Key"
+                },
+                new ComboboxItem{
+                     Text = "内容",
+                     Value = "Value"
+                }
+            }.ToArray());
+
+            cmbSearchType.SelectedIndex = 0;
+        }
+
         private void InitGridData()
         {
-            dgResourceList.DataSource = new List<ResourceModel> { 
-                new ResourceModel {
-                     Index = 1,
-                     Key = "test1",
-                     Chinese = "test1-chinese",
-                     English = "test1-english"
-                },
-                new ResourceModel {
-                     Index = 2,
-                     Key = "test2",
-                     Chinese = "test2-chinesedfgsdfgsdfgsdfgsdfgsdfgsdgsdfgsdfgsdfgsdf",
-                     English = "test2-englishsdfgsdfgsdgsdfgsdfgsdfgsdfgsdfgsdfgsdfgsd"
-                }
-            };
+            var resourceData = ResourceDataService.Search(((ComboboxItem)cmbSearchType.SelectedItem).Value, SearchText.Text.Trim());
+            dgResourceList.DataSource = resourceData;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            InitGridData();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            new Child(Status.New, 0).ShowDialog();
+            var child = new Child(FileStatus.New, 0);
+            child.StartPosition = FormStartPosition.CenterParent;
+
+            if (child.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                InitGridData();
         }
 
         /// <summary>
@@ -131,7 +144,6 @@ namespace Resource
                     var index = GetDataIndexData();
                     if (index == 0) return;
 
-                    //删除
                     if (string.Equals("Delete", tag.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
                         if (MessageBox.Show(this, "你确定要删除此条数据?", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
@@ -143,10 +155,13 @@ namespace Resource
                             dgResourceList.DataSource = list;
                         }
                     }
-                    //修改
                     else if (string.Equals("Modify", tag.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
-                        new Child(Status.Edit, index).ShowDialog();
+                        var child = new Child(FileStatus.Edit, index);
+                        child.StartPosition = FormStartPosition.CenterParent;
+
+                        if (child.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                            InitGridData();
                     }
                 }
             }
@@ -157,7 +172,10 @@ namespace Resource
             var index = GetDataIndexData();
             if (index == 0) return;
 
-            new Child(Status.View, index).ShowDialog();
+            var child = new Child(FileStatus.View, index);
+            child.StartPosition = FormStartPosition.CenterParent;
+
+            child.ShowDialog();
         }
 
         private int GetDataIndexData()
