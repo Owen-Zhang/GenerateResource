@@ -35,6 +35,7 @@
             this.cmbSearchType = new System.Windows.Forms.ComboBox();
             this.SearchText = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDown = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgResourceList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +95,7 @@
             this.SearchText.Name = "SearchText";
             this.SearchText.Size = new System.Drawing.Size(632, 31);
             this.SearchText.TabIndex = 3;
+            this.SearchText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchText_KeyDown);
             // 
             // btnAdd
             // 
@@ -107,11 +109,23 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnDown
+            // 
+            this.btnDown.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDown.Location = new System.Drawing.Point(857, 42);
+            this.btnDown.Name = "btnDown";
+            this.btnDown.Size = new System.Drawing.Size(81, 29);
+            this.btnDown.TabIndex = 4;
+            this.btnDown.Text = "下载";
+            this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1414, 791);
+            this.Controls.Add(this.btnDown);
             this.Controls.Add(this.SearchText);
             this.Controls.Add(this.cmbSearchType);
             this.Controls.Add(this.btnAdd);
@@ -134,5 +148,6 @@
         private System.Windows.Forms.ComboBox cmbSearchType;
         private System.Windows.Forms.TextBox SearchText;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDown;
     }
 }

@@ -98,7 +98,7 @@
             this.btnCancel.Location = new System.Drawing.Point(683, 308);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(55, 23);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -108,7 +108,7 @@
             this.btnOk.Location = new System.Drawing.Point(618, 308);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(60, 23);
-            this.btnOk.TabIndex = 7;
+            this.btnOk.TabIndex = 6;
             this.btnOk.Text = "保存";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);

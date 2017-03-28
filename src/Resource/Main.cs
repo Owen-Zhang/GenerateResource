@@ -1,5 +1,6 @@
 ﻿using Resource.DataAcess;
 using Resource.Model;
+using Resource.Service;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -110,7 +111,7 @@ namespace Resource
 
         private void InitGridData()
         {
-            var resourceData = ResourceDataService.Search(((ComboboxItem)cmbSearchType.SelectedItem).Value, SearchText.Text.Trim());
+            var resourceData = ResourceDataService.Search(((ComboboxItem)cmbSearchType.SelectedItem).Value, SearchText.Text.Trim(), 50);
             dgResourceList.DataSource = resourceData;
         }
 
@@ -185,6 +186,28 @@ namespace Resource
             int index = 0;
             int.TryParse(value, out index);
             return index;
+        }
+
+        /// <summary>
+        /// 当为回车键时查询
+        /// </summary>
+        private void SearchText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                InitGridData();
+        }
+
+        /// <summary>
+        /// 下载生成的资源文件
+        /// </summary>
+        private void btnDown_Click(object sender, EventArgs e)
+        {
+            var data = ResourceDataService.Search("Key", string.Empty);
+            if (data.Count == 0)
+                return;
+
+            ResourceGenerater.GenerateResxFile(data);
+            MessageBox.Show("生成成功", "提示");
         }
     }
 }

@@ -64,11 +64,12 @@ namespace Resource.DataAcess
         /// <summary>
         /// 查询
         /// </summary>
-        public static List<ResourceModel> Search(string keyWordType, string content)
+        public static List<ResourceModel> Search(string keyWordType, string content, int total = int.MaxValue)
         {
             var command = DataAccess.DbManager.GetDataCommand("Resource_Search");
             command.SetParameterValue("@KeyWordType", keyWordType);
             command.SetParameterValue("@Content", content);
+            command.SetParameterValue("@Total", total);
 
             return command.QueryList<ResourceModel>();
         }

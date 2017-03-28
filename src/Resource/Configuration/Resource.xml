@@ -98,12 +98,13 @@
         where (@KeyWordType = 'Key' and Keyword like concat('%',@Content,'%')) or
               (@KeyWordType = 'Value' and (chinese like concat('%',@Content,'%') or english like concat('%',@Content,'%')))
         order by transactionnumber desc
-        Limit 50
+        Limit @Total
       ]]>
       </CommandText>
       <Parameters>
         <Parameter Name="@KeyWordType" DbType="String" />
         <Parameter Name="@Content" DbType="String" />
+        <Parameter Name="@Total" DbType="Int32" />
       </Parameters>
     </Command>
     
