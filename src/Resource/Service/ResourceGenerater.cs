@@ -12,23 +12,38 @@ namespace Resource.Service
         internal static void GenerateResxFile(List<ResourceModel> resourceList)
         {
             var resourceName = Util.GetAppSettings("ResourceName");
+            var nameSpace = Util.GetAppSettings("NameSpace");
 
-            string tempResxFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp", string.Format("{0}.resx", resourceName));
-            Util.CreateFolder(tempResxFile);
+            GenerateChinese(resourceName, nameSpace, resourceList);
+        }
 
-            using (var writer = new ResXResourceWriter(tempResxFile))
+        private static void GenerateChinese(string resourceName, string nameSpace, List<ResourceModel> resourceList)
+        {
+            string tempChineseResxFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp", string.Format("{0}.resx", resourceName));
+            Util.CreateFolder(tempChineseResxFile);
+
+            using (var writer = new ResXResourceWriter(tempChineseResxFile))
             {
                 foreach (var item in resourceList)
                     writer.AddResource(item.Key, item.Chinese);
             }
-            string designFilePath = tempResxFile.Replace(".resx", ".designer.cs");
+
+            string tempEnglishResxFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp", string.Format("{0}.en-US.resx", resourceName));
+
+            using (var writer = new ResXResourceWriter(tempEnglishResxFile))
+            {
+                foreach (var item in resourceList)
+                    writer.AddResource(item.Key, item.English);
+            }
+
+            string designChineseFilePath = tempChineseResxFile.Replace(".resx", ".designer.cs");
 
             var codeProvider = new Microsoft.CSharp.CSharpCodeProvider();
-            
+
             var keyValues = new Dictionary<object, object>();
-            using (ResXResourceReader rsxr = new ResXResourceReader(tempResxFile))
+            using (ResXResourceReader rsxr = new ResXResourceReader(tempChineseResxFile))
             {
-                rsxr.BasePath = new FileInfo(tempResxFile).Directory.FullName;
+                rsxr.BasePath = new FileInfo(tempChineseResxFile).Directory.FullName;
                 rsxr.UseResXDataNodes = true;
 
                 foreach (DictionaryEntry entry in rsxr)
@@ -39,12 +54,12 @@ namespace Resource.Service
             var code = System.Resources.Tools.StronglyTypedResourceBuilder.Create(
                            keyValues,
                            resourceName,
-                           Util.GetAppSettings("NameSpace"),
+                           nameSpace,
                            codeProvider,
                            false,
                            out unmatchedElements);
 
-            using (StreamWriter writer = new StreamWriter(designFilePath, false, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(designChineseFilePath, false, System.Text.Encoding.UTF8))
             {
                 codeProvider.GenerateCodeFromCompileUnit(code, writer, new System.CodeDom.Compiler.CodeGeneratorOptions());
             }

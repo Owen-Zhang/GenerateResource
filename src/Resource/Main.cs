@@ -207,7 +207,7 @@ namespace Resource
                 return;
 
             ResourceGenerater.GenerateResxFile(data);
-            MessageBox.Show("生成成功", "提示");
+            MessageBox.Show("已将相关内容生成到Temp目录中。", "提示");
         }
     }
 }
