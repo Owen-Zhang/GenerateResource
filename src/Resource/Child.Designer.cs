@@ -36,6 +36,8 @@
             this.lbEnglish = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.txtTraditional = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -95,29 +97,49 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCancel.Location = new System.Drawing.Point(683, 308);
+            this.btnCancel.Location = new System.Drawing.Point(683, 384);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(55, 23);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnOk.Location = new System.Drawing.Point(618, 308);
+            this.btnOk.Location = new System.Drawing.Point(618, 384);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(60, 23);
-            this.btnOk.TabIndex = 6;
+            this.btnOk.TabIndex = 7;
             this.btnOk.Text = "保存";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // txtTraditional
+            // 
+            this.txtTraditional.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtTraditional.Location = new System.Drawing.Point(125, 329);
+            this.txtTraditional.Name = "txtTraditional";
+            this.txtTraditional.Size = new System.Drawing.Size(614, 29);
+            this.txtTraditional.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(75, 334);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "繁体";
             // 
             // Child
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 340);
+            this.ClientSize = new System.Drawing.Size(783, 436);
+            this.Controls.Add(this.txtTraditional);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtEnglish);
@@ -146,5 +168,7 @@
         private System.Windows.Forms.Label lbEnglish;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.TextBox txtTraditional;
+        private System.Windows.Forms.Label label2;
     }
 }

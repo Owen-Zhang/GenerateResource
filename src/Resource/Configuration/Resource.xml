@@ -4,7 +4,7 @@
     <Command Name="Resource_DeleteOne" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        delete from multipleresource where transactionnumber = @Index 
+        delete from MultipleResource where transactionnumber = @Index 
       ]]>
       </CommandText>
       <Parameters>
@@ -19,8 +19,9 @@
           transactionNumber as `Index`, 
           Keyword as `Key`, 
           chinese as Chinese, 
-          english as English 
-        from multipleresource 
+          english as English,
+          Traditional as Traditional
+        from MultipleResource 
         where transactionnumber = @Index
       ]]>
       </CommandText>
@@ -36,8 +37,9 @@
           transactionNumber as `Index`, 
           Keyword as `Key`, 
           chinese as Chinese, 
-          english as English 
-        from multipleresource 
+          english as English,
+          Traditional as Traditional
+        from MultipleResource 
         where Keyword = @Key
       ]]>
       </CommandText>
@@ -49,17 +51,19 @@
     <Command Name="Resource_NewOne" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        insert into multipleresource
+        insert into MultipleResource
         (
           Keyword,
           chinese,
-          english
+          english,
+          traditional
         )
         values
         (
           @KeyWord,
           @Chinese,
-          @English
+          @English,
+          @Traditional
         ) 
       ]]>
       </CommandText>
@@ -67,15 +71,17 @@
         <Parameter Name="@KeyWord" DbType="String" />
         <Parameter Name="@Chinese" DbType="String" />
         <Parameter Name="@English" DbType="String" />
+        <Parameter Name="@Traditional" DbType="String" />
       </Parameters>
     </Command>
 
     <Command Name="Resource_UpdateOne" DataBase="TestMySql" CommandType="Text">
       <CommandText>
         <![CDATA[
-        update multipleresource set
+        update MultipleResource set
           chinese = @Chinese,
-          english = @English
+          english = @English,
+          traditional = @Traditional
           where transactionnumber = @Index
       ]]>
       </CommandText>
@@ -83,6 +89,7 @@
         <Parameter Name="@Chinese" DbType="String" />
         <Parameter Name="@English" DbType="String" />
         <Parameter Name="@Index" DbType="Int32" />
+        <Parameter Name="@Traditional" DbType="String" />
       </Parameters>
     </Command>
 
@@ -93,8 +100,9 @@
           transactionNumber as `Index`, 
           Keyword as `Key`, 
           chinese as Chinese, 
-          english as English 
-        from multipleresource 
+          english as English,
+          traditional as Traditional
+        from MultipleResource 
         where (@KeyWordType = 'Key' and Keyword like concat('%',@Content,'%')) or
               (@KeyWordType = 'Value' and (chinese like concat('%',@Content,'%') or english like concat('%',@Content,'%')))
         order by transactionnumber desc

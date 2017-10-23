@@ -50,7 +50,11 @@ namespace Resource
             if (status == FileStatus.Edit)
                 txtKey.Enabled = false;
             else if (status == FileStatus.View)
+            {
+                txtKey.Enabled = false;
                 btnOk.Visible = false;
+            }
+                
         }
 
         private void LoadData()
@@ -62,6 +66,7 @@ namespace Resource
             txtKey.Text = result.Key;
             txtChinese.Text = result.Chinese;
             txtEnglish.Text = result.English;
+            txtTraditional.Text = result.Traditional;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -73,7 +78,7 @@ namespace Resource
             }
 
             if (status == FileStatus.Edit)
-                ResourceDataService.Update(index, txtChinese.Text.Trim(), txtEnglish.Text.Trim());
+                ResourceDataService.Update(index, txtChinese.Text.Trim(), txtEnglish.Text.Trim(), txtTraditional.Text.Trim());
             else if (status == FileStatus.New)
             {
                 var keyResult = ResourceDataService.GetResourceInfoByKey(txtKey.Text.Trim());
@@ -83,7 +88,7 @@ namespace Resource
                     return;
                 }
 
-                ResourceDataService.New(txtKey.Text.Trim(), txtChinese.Text.Trim(), txtEnglish.Text.Trim());
+                ResourceDataService.New(txtKey.Text.Trim(), txtChinese.Text.Trim(), txtEnglish.Text.Trim(), txtTraditional.Text.Trim());
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -92,7 +97,7 @@ namespace Resource
         private bool CheckDataBeforeSave()
         { 
             var flag = true;
-            if (string.IsNullOrEmpty(txtKey.Text.Trim()) || string.IsNullOrEmpty(txtChinese.Text.Trim()))
+            if (string.IsNullOrEmpty(txtKey.Text.Trim()) || string.IsNullOrEmpty(txtChinese.Text.Trim()) || string.IsNullOrWhiteSpace(txtTraditional.Text))
                 flag = false;
 
             return flag;

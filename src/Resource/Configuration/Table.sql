@@ -3,5 +3,6 @@
    KeyWord VARCHAR(50) NOT NULL,
    Chinese VARCHAR(1000) NOT NULL,
    English VARCHAR(1000),
+   Traditional VARCHAR(1000),
    PRIMARY KEY (transactionNumber)
    )ENGINE=MyISAM DEFAULT CHARSET=utf8;

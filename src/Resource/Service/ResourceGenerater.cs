@@ -35,6 +35,15 @@ namespace Resource.Service
                 foreach (var item in resourceList)
                     writer.AddResource(item.Key, item.English);
             }
+            //繁体
+            string tempTraditionalResxFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Temp", string.Format("{0}.zh-HK.resx", resourceName));
+
+            using (var writer = new ResXResourceWriter(tempTraditionalResxFile))
+            {
+                foreach (var item in resourceList)
+                    writer.AddResource(item.Key, item.Traditional);
+            }
+
 
             string designChineseFilePath = tempChineseResxFile.Replace(".resx", ".designer.cs");
 

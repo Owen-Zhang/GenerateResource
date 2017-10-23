@@ -44,15 +44,15 @@ namespace Resource
                          Name = "Key",
                          DataPropertyName = "Key",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 269,
+                         Width = 188,
                     },
                     new DataGridViewTextBoxColumn(){
                          DisplayIndex = 1,
-                         HeaderText = "中文",
+                         HeaderText = "简体",
                          Name = "Chinese",
                          DataPropertyName = "Chinese",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 485,
+                         Width = 350,
                     },
                     new DataGridViewTextBoxColumn(){
                          DisplayIndex = 2,
@@ -60,10 +60,18 @@ namespace Resource
                          Name = "English",
                          DataPropertyName =  "English",
                          SortMode = DataGridViewColumnSortMode.NotSortable,
-                         Width = 485
+                         Width = 350
+                    },
+                    new DataGridViewTextBoxColumn(){
+                         DisplayIndex = 3,
+                         HeaderText = "繁体",
+                         Name = "Traditional ",
+                         DataPropertyName =  "Traditional",
+                         SortMode = DataGridViewColumnSortMode.NotSortable,
+                         Width = 350
                     },
                     new DataGridViewButtonColumn(){
-                         DisplayIndex = 3,
+                         DisplayIndex = 4,
                          HeaderText = "删除",
                          DefaultCellStyle = new DataGridViewCellStyle { NullValue = "删除", Font = new System.Drawing.Font("", 10), Alignment = DataGridViewContentAlignment.BottomCenter},
                          SortMode = DataGridViewColumnSortMode.NotSortable,
@@ -71,7 +79,7 @@ namespace Resource
                          Width = 60
                     },
                     new DataGridViewButtonColumn(){
-                         DisplayIndex = 4,
+                         DisplayIndex = 5,
                          HeaderText = "修改",
                          DefaultCellStyle = new DataGridViewCellStyle{NullValue = "修改",Font = new System.Drawing.Font("", 10), Alignment = DataGridViewContentAlignment.BottomCenter},
                          SortMode = DataGridViewColumnSortMode.NotSortable,
@@ -79,7 +87,7 @@ namespace Resource
                          Width = 60
                     },
                     new DataGridViewTextBoxColumn(){
-                         DisplayIndex = 5,
+                         DisplayIndex = 6,
                          Name = "Index",
                          DataPropertyName = "Index",
                          SortMode = DataGridViewColumnSortMode.NotSortable,

@@ -21,5 +21,10 @@
         /// 英文
         /// </summary>
         public string English { get; set; }
+
+        /// <summary>
+        /// 繁体
+        /// </summary>
+        public string Traditional { get; set; }
     }
 }

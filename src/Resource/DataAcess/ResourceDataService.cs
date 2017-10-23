@@ -38,12 +38,13 @@ namespace Resource.DataAcess
         /// <summary>
         /// 新增
         /// </summary>
-        public static void New(string keyWord, string chinese, string english)
+        public static void New(string keyWord, string chinese, string english, string traditional)
         {
             var command = DataAccess.DbManager.GetDataCommand("Resource_NewOne");
             command.SetParameterValue("@KeyWord", keyWord);
             command.SetParameterValue("@Chinese", chinese);
             command.SetParameterValue("@English", english);
+            command.SetParameterValue("@Traditional", traditional);
 
             command.ExecuteNonQuery();
         }
@@ -51,12 +52,13 @@ namespace Resource.DataAcess
         /// <summary>
         /// 更新
         /// </summary>
-        public static void Update(int index, string chinese, string english)
+        public static void Update(int index, string chinese, string english, string traditional)
         {
             var command = DataAccess.DbManager.GetDataCommand("Resource_UpdateOne");
             command.SetParameterValue("@Index", index);
             command.SetParameterValue("@Chinese", chinese);
             command.SetParameterValue("@English", english);
+            command.SetParameterValue("@Traditional", traditional);
 
             command.ExecuteNonQuery();
         }
